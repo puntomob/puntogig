@@ -1,0 +1,62 @@
+@import 'variables';
+@import 'elements';
+@import 'iconfont';
+
+body {
+	background: #000;
+	color: #FFF;
+}
+
+.logo {
+	width: 30%;
+	display: block;
+	margin: 0 auto;
+
+	&.big {
+		margin-top: 80px;
+		width: 60%;
+	}
+}
+
+.logo-title {
+	color: #FFF;
+	text-align: center;
+	font-family: @lobsterFont;
+	font-weight: 400;
+	margin: 0;
+
+	&.big {
+		font-size: 4em;
+	}
+}
+
+.user-request {
+	text-align: center;
+	font-size: 1.3em;
+	margin: 20px 0;
+}
+
+.target {
+	color: #000;
+	font-weight: normal;
+	font-family: 'icomoon';
+}
+
+.events {
+	color: @redColor;
+	padding: 10px;
+	font-size: 1.5em;
+	text-align: center;
+	margin: 0 auto;
+	display: block;
+	opacity: 0;
+	.transition(0.3s, ease-out);
+
+	&.active {
+		opacity: 1;
+	}
+
+	&:before {
+		padding: 0 10px;
+	}
+}
