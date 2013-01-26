@@ -1,19 +1,22 @@
 <html>
 <head>
+	<link href='http://fonts.googleapis.com/css?family=Lobster' rel='stylesheet' type='text/css'>
+  <link rel="stylesheet" href="stylesheets/foundation.min.css">
+  <link rel="stylesheet" href="stylesheets/app.css">
+
 	<script type="text/javascript" src="javascripts/lastfm.api.md5.js"></script>
 	<script type="text/javascript" src="javascripts/lastfm.api.js"></script>
 	<script type="text/javascript" src="javascripts/jquery.js"></script>
 	<!--<script type="text/javascript" src="javascripts/lastfm.api.cache.js"></script>-->
 </head>
 <body>
-	Eventos!
-	<div id="location"></div>
-	<div id="evento0"></div>
-	<div id="evento1"></div>
-	<div id="evento2"></div>
-	<div id="evento3"></div>
-	<div id="evento4"></div>
-	<div id="evento0"></div>
+	<div class="event" id="location"></div>
+	<div class="event" id="evento0"></div>
+	<div class="event" id="evento1"></div>
+	<div class="event" id="evento2"></div>
+	<div class="event" id="evento3"></div>
+	<div class="event" id="evento4"></div>
+	<div class="event" id="evento0"></div>
 <script>
 	/* Create a LastFM object */
 	var lastfm = new LastFM({
@@ -35,12 +38,11 @@
 		var location = eventos.events['@attr'].location;
 		var total = eventos.events['@attr'].total;
 		total = parseInt(total);
-		$('#location').append('<h1>'+location+'</h1>');
 		for(var i = 0; i<total; i++){
 			var evento = eventos.events.event[i];
-			$('#evento'+i).append('<h1><a href="http://puntogig.mob/event.html?id='+evento.id+'">'+evento.title+'</a></h1>');
+			var link = '/event.html?id='+evento.id;
 			$('#evento'+i).append('<img src="'+evento.image[3]['#text']+'" />');
-			$('#evento'+i).append('<p>'+evento.description+'</p>');
+			$('#evento'+i).append('<h1><a href="'+link+'">'+evento.title+'</a></h1>');
 		}
 	}, error: function(code, message){
 		/* Show error message. */

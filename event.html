@@ -1,12 +1,15 @@
 <html>
 <head>
+	<link href='http://fonts.googleapis.com/css?family=Lobster' rel='stylesheet' type='text/css'>
+  <link rel="stylesheet" href="stylesheets/foundation.min.css">
+  <link rel="stylesheet" href="stylesheets/app.css">
+
 	<script type="text/javascript" src="javascripts/lastfm.api.md5.js"></script>
 	<script type="text/javascript" src="javascripts/lastfm.api.js"></script>
 	<script type="text/javascript" src="javascripts/jquery.js"></script>
 	<!--<script type="text/javascript" src="javascripts/lastfm.api.cache.js"></script>-->
 </head>
 <body>
-	Evento!
 	<div id="event"></div>
 <script>
 	/* Create a LastFM object */
@@ -30,17 +33,12 @@
 	
 		$('#event').append('<h1>'+eventos.event.title+'</h1>');
 		$('#event').append('<img src="'+eventos.event.image[3]['#text']+'" />');
-		$('#event').append('<h2>FECHA:'+eventos.event.startDate+'</h2>');
-		$('#event').append('<h2>VENUW:'+eventos.event.venue.name+'</h2>');
-		$('#event').append('<hp>'+eventos.event.description+'</p>');
-		$('#event').append('<h1>artistas</h1>');
-		
-		/*for(var i = 0; i<total; i++){
-			var evento = eventos.events.event[i];
-			$('#evento'+i).append('<h1>'+evento.title+'</h1>');
-			$('#evento'+i).append('<img src="'+evento.image[3]['#text']+'" />');
-			$('#evento'+i).append('<p>'+evento.description+'</p>');
-		}*/
+		$('#event').append('<div class="row">');
+		$('#event').append('<h2 class="mobile-two columns">FECHA:'+eventos.event.startDate+'</h2>');
+		$('#event').append('<h2 class="mobile-two columns">VENUW:'+eventos.event.venue.name+'</h2>');
+		$('#event').append('</div>');
+		$('#event').append('<div class="one column">'+eventos.event.description+'</div>');
+
 	}, error: function(code, message){
 		/* Show error message. */
 		console.log(code);

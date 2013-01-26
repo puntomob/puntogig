@@ -18,13 +18,13 @@
     "es": {
       "description": "Una aplicación que muestra los proximos conciertos cerca a ti",
       "developer": {
-        "url": "http://puntomob.com"
+        "url": "http://puntomob.com/puntogig"
       }
     },
     "en": {
       "description": "An app that shows upcoming gigs around you",
       "developer": {
-        "url": "http://puntomob.com"
+        "url": "http://puntomob.com/puntogig"
       }
     }
   },
