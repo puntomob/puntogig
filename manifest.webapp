@@ -1,0 +1,32 @@
+{
+  "version": "0.1",
+  "name": "puntogig",
+  "description": "An app that shows upcoming gigs around you",
+  "launch_path": "index.html",
+  "icons": {
+    "16": "/images/icons/puntogig-16.png",
+    "48": "/images/icons/puntogig-48.png",
+    "128": "/images/icons/puntogig-128.png"
+  },
+  "developer": {
+    "name": "Puntomob",
+    "url": "http://puntomob.com/puntogig"
+  },
+  "installs_allowed_from": ["*"],
+  "appcache_path": "/cache.manifest",
+  "locales": {
+    "es": {
+      "description": "Una aplicación que muestra los proximos conciertos cerca a ti",
+      "developer": {
+        "url": "http://puntomob.com"
+      }
+    },
+    "en": {
+      "description": "An app that shows upcoming gigs around you",
+      "developer": {
+        "url": "http://puntomob.com"
+      }
+    }
+  },
+  "default_locale": "en"
+}
