@@ -1,0 +1,53 @@
+<html>
+<head>
+	<script type="text/javascript" src="javascripts/lastfm.api.md5.js"></script>
+	<script type="text/javascript" src="javascripts/lastfm.api.js"></script>
+	<script type="text/javascript" src="javascripts/jquery.js"></script>
+	<!--<script type="text/javascript" src="javascripts/lastfm.api.cache.js"></script>-->
+</head>
+<body>
+	Evento!
+	<div id="event"></div>
+<script>
+	/* Create a LastFM object */
+	var lastfm = new LastFM({
+		apiKey    : 'd63ef7e6d4d28839af93d9b95288c9d8',
+		apiSecret : 'cedbe2be01862a323018d4515e88a07a'
+		//,cache     : cache
+	});
+
+	function getURLParameter(name) {
+    	return decodeURI((RegExp(name + '=' + '(.+?)(&|$)').exec(location.search)||[,null])[1]);
+	}
+	var eventos;
+	var event = getURLParameter('id');
+	var api_key = 'd63ef7e6d4d28839af93d9b95288c9d8';
+	lastfm.event.getInfo({event:event,api_key:api_key}, {success: function(data){
+		/* Use data. */
+		console.log(data);
+		eventos = data;
+
+	
+		$('#event').append('<h1>'+eventos.event.title+'</h1>');
+		$('#event').append('<img src="'+eventos.event.image[3]['#text']+'" />');
+		$('#event').append('<h2>FECHA:'+eventos.event.startDate+'</h2>');
+		$('#event').append('<h2>VENUW:'+eventos.event.venue.name+'</h2>');
+		$('#event').append('<hp>'+eventos.event.description+'</p>');
+		$('#event').append('<h1>artistas</h1>');
+		
+		/*for(var i = 0; i<total; i++){
+			var evento = eventos.events.event[i];
+			$('#evento'+i).append('<h1>'+evento.title+'</h1>');
+			$('#evento'+i).append('<img src="'+evento.image[3]['#text']+'" />');
+			$('#evento'+i).append('<p>'+evento.description+'</p>');
+		}*/
+	}, error: function(code, message){
+		/* Show error message. */
+		console.log(code);
+		console.log(message);
+	}});
+</script>
+</body>
+</html>
+
+

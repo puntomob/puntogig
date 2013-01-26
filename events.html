@@ -1,0 +1,54 @@
+<html>
+<head>
+	<script type="text/javascript" src="javascripts/lastfm.api.md5.js"></script>
+	<script type="text/javascript" src="javascripts/lastfm.api.js"></script>
+	<script type="text/javascript" src="javascripts/jquery.js"></script>
+	<!--<script type="text/javascript" src="javascripts/lastfm.api.cache.js"></script>-->
+</head>
+<body>
+	Eventos!
+	<div id="location"></div>
+	<div id="evento0"></div>
+	<div id="evento1"></div>
+	<div id="evento2"></div>
+	<div id="evento3"></div>
+	<div id="evento4"></div>
+	<div id="evento0"></div>
+<script>
+	/* Create a LastFM object */
+	var lastfm = new LastFM({
+		apiKey    : 'd63ef7e6d4d28839af93d9b95288c9d8',
+		apiSecret : 'cedbe2be01862a323018d4515e88a07a'
+		//,cache     : cache
+	});
+
+	function getURLParameter(name) {
+    	return decodeURI((RegExp(name + '=' + '(.+?)(&|$)').exec(location.search)||[,null])[1]);
+	}
+	var eventos;
+	var lat = '4.5990';
+	var long = '-74.0756';
+	lastfm.geo.getEvents({long:long,lat:lat}, {success: function(data){
+		/* Use data. */
+		console.log(data);
+		eventos = data;
+		var location = eventos.events['@attr'].location;
+		var total = eventos.events['@attr'].total;
+		total = parseInt(total);
+		$('#location').append('<h1>'+location+'</h1>');
+		for(var i = 0; i<total; i++){
+			var evento = eventos.events.event[i];
+			$('#evento'+i).append('<h1><a href="http://puntogig.mob/event.html?id='+evento.id+'">'+evento.title+'</a></h1>');
+			$('#evento'+i).append('<img src="'+evento.image[3]['#text']+'" />');
+			$('#evento'+i).append('<p>'+evento.description+'</p>');
+		}
+	}, error: function(code, message){
+		/* Show error message. */
+		console.log(code);
+		console.log(message);
+	}});
+</script>
+</body>
+</html>
+
+
