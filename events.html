@@ -1,5 +1,6 @@
 <html>
 <head>
+	<meta name="viewport" content="width=device-width" />
 	<link href='http://fonts.googleapis.com/css?family=Lobster' rel='stylesheet' type='text/css'>
   <link rel="stylesheet" href="stylesheets/foundation.min.css">
   <link rel="stylesheet" href="stylesheets/app.css">
@@ -40,7 +41,7 @@
 		total = parseInt(total);
 		for(var i = 0; i<total; i++){
 			var evento = eventos.events.event[i];
-			var link = '/event.html?id='+evento.id;
+			var link = 'http://puntomob.com/puntogig/event.html?id='+evento.id;
 			$('#evento'+i).append('<img src="'+evento.image[3]['#text']+'" />');
 			$('#evento'+i).append('<h1><a href="'+link+'">'+evento.title+'</a></h1>');
 		}

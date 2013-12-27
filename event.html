@@ -1,5 +1,6 @@
 <html>
 <head>
+	<meta name="viewport" content="width=device-width" />
 	<link href='http://fonts.googleapis.com/css?family=Lobster' rel='stylesheet' type='text/css'>
   <link rel="stylesheet" href="stylesheets/foundation.min.css">
   <link rel="stylesheet" href="stylesheets/app.css">
@@ -34,8 +35,8 @@
 		$('#event').append('<h1>'+eventos.event.title+'</h1>');
 		$('#event').append('<img src="'+eventos.event.image[3]['#text']+'" />');
 		$('#event').append('<div class="row">');
-		$('#event').append('<h2 class="mobile-two columns">FECHA:'+eventos.event.startDate+'</h2>');
-		$('#event').append('<h2 class="mobile-two columns">VENUW:'+eventos.event.venue.name+'</h2>');
+		$('#event').append('<h2 class="mobile-two columns">'+eventos.event.startDate+'</h2>');
+		$('#event').append('<h2 class="mobile-two columns">'+eventos.event.venue.name+'</h2>');
 		$('#event').append('</div>');
 		$('#event').append('<div class="one column">'+eventos.event.description+'</div>');
 
